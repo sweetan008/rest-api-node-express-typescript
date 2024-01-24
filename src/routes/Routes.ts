@@ -1,10 +1,10 @@
 // src/routes/Routes.ts
 
 import { Router } from 'express';
-import {getTestOCR}  from '../controllers/SampleController';
+import {sampleEndPoint}  from '../controllers/SampleController';
 
 const router: Router = Router();
 
-router.get('/v1', getTestOCR );
+router.get('/v1', sampleEndPoint );
 
 export default router;

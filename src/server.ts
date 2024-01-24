@@ -1,25 +1,19 @@
-// src/server.ts
-
 import express, { Application } from 'express';
 import loggerMiddleware from './middleware/loggerMiddleware';
 import authenticatedRequest from './middleware/jsonwebtoken';
-
-import userRoutes from './routes/Routes';
+import Routes from './routes/Routes';
+import { port } from './config'; // Import the port variable from config.ts
 
 const app: Application = express();
-const port: number = 3000;
+
+// Use the port variable from config.ts
+const portNumber = port || 3000;
 
 app.use(authenticatedRequest);
-// Custom middleware to log requests
 app.use(loggerMiddleware);
-
-// Built-in middleware to parse JSON in the request body
 app.use(express.json());
+app.use('/v1', Routes);
 
-// Routes
-app.use('/', userRoutes);
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(portNumber, () => {
+  console.log(`Server is running on port ${portNumber}`);
 });
