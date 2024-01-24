@@ -3,7 +3,7 @@
 import { Request, Response } from 'express';
 import { AuthenticatedRequest } from '../middleware/jsonwebtoken';
 
-export const sampleEndPoint = async (
+export const sampleEndpoint = async (
   req: AuthenticatedRequest,
   res: Response
 ): Promise<void> => {
