@@ -42,8 +42,7 @@ This repository contains a simple REST API built using Node.js, Express, and Typ
     npm run dev
 
 ## API Endpoints:
-    Endpoint 1: /api/endpoint1
-    Endpoint 2: /api/endpoint2
+    Endpoint: /v1//sampleEndpoint
     
 ## Project Structure
     src/: Contains the source code of the application
