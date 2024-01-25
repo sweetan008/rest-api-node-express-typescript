@@ -1,19 +1,23 @@
 import express, { Application } from 'express';
 import loggerMiddleware from './middleware/loggerMiddleware';
-import authenticatedRequest from './middleware/jsonwebtoken';
-import Routes from './routes/Routes';
 import { port } from './config'; // Import the port variable from config.ts
+import bodyParser from 'body-parser';
+import cors from "cors";
+import setupRoutes from './routes/index.route';
+import authenticateToken from './middleware/jsonwebtoken';
+import http from 'http';
 
-const app: Application = express();
-
-// Use the port variable from config.ts
-const portNumber = port || 3000;
-
-app.use(authenticatedRequest);
+const app = express();
+app.use(bodyParser.json());
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(authenticateToken);
 app.use(loggerMiddleware);
 app.use(express.json());
-app.use('/v1', Routes);
+setupRoutes(app);
 
-app.listen(portNumber, () => {
-  console.log(`Server is running on port ${portNumber}`);
+const server = http.createServer(app);
+server.listen(port, () => {
+  console.log(`API started at http://localhost:${port}`);
 });
+
