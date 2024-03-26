@@ -39,7 +39,7 @@ This repository contains a simple REST API built using Node.js, Express, and Typ
     npm install
 
 ## Run the Development Server:
-    npm run dev
+    npm start
 
 ## API Endpoints:
     Endpoint: /v1/sampleEndpoint
