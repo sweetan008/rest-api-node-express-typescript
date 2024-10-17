@@ -9,12 +9,6 @@ This repository contains a simple REST API built using Node.js, Express, and Typ
 - **TypeScript:** Superset of JavaScript that adds static typing
 - **RESTful API:** Design principles for creating scalable and maintainable APIs
 
-## Getting Started
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/sweetan008/rest-api-node-express-typescript.git
-
 Certainly! Here's a template for a README.md file for your "rest-api-node-express-typescript" repository on GitHub. Feel free to customize it based on your project's specific details:
 
 # REST API with Node.js, Express, and TypeScript
